@@ -37,6 +37,8 @@ func TriggerBuild(repoSlug, branchName, message string) {
 	requestsURL := composeRequestsURL(repoSlug)
 	travisRequest := newTravisRequest(http.MethodPost, requestsURL)
 
+	log.Printf("Trigger build of branch '%s' in repo '%s': %s'", branchName, repoSlug, requestsURL)
+
 	var postBodyStructure = buildRequest{}
 	postBodyStructure.Request.Branch = branchName
 	postBodyStructure.Request.Message = message
@@ -56,6 +58,9 @@ func TriggerBuild(repoSlug, branchName, message string) {
 
 	defer resp.Body.Close()
 
+	if resp.StatusCode != http.StatusAccepted {
+		log.Fatalf("Triggering build resulted in HTTP Status Code %d", resp.StatusCode)
+	}
 }
 
 /*
