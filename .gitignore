@@ -1,0 +1,8 @@
+bin/
+pkg/
+src/github.com/
+src/golang.org/
+.vscode/
+*~
+restart-build
+trigger-build
