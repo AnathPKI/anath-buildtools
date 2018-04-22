@@ -18,12 +18,12 @@ SEMANTIC_VERSION=${TRAVIS_TAG#v}
 cat > bintray-deploy.json <<EOF
 {
     "package": {
-        "name": "auto-upload",
+        "name": "go-binaries",
         "repo": "anathpki/anath-buildtools",
         "desc": "I was pushed completely automatically",
         "website_url": "https://github.com/AnathPKI/anath-buildtools",
         "vcs_url": "https://github.com/AnathPKI/anath-buildtools.git",
-        "licenses": ["BSD-2-CLAUSE"]
+        "licenses": ["BSD 2-Clause"]
     },
     "version": {
         "name": "${SEMANTIC_VERSION}",
@@ -33,7 +33,7 @@ cat > bintray-deploy.json <<EOF
 
     "files":
         [
-        {"includePattern": "restart-build|trigger-build", uploadPattern": "${TRAVIS_TAG}/"}
+        {"includePattern": "\./(restart-build|trigger-build)", "uploadPattern": "${TRAVIS_TAG}/\$1"}
         ],
     "publish": true
 }
