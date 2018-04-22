@@ -2,8 +2,8 @@ language: go
 go:
 - 1.10.x
 deploy:
-  provider: bintray
   before_deploy: bash deploy/bintray-deploy.sh
+  provider: bintray
   file: bintray-deploy.json
   user: RafaelOstertag
   key:
