@@ -33,7 +33,7 @@ cat > bintray-deploy.json <<EOF
 
     "files":
         [
-        {"includePattern": "restart-build|trigger-build", uploadPattern": "${TRAVIS_TAG}/"}
+        {"includePattern": "(restart-build|trigger-build)", "uploadPattern": "${TRAVIS_TAG}/\$1"}
         ],
     "publish": true
 }
