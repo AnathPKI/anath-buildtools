@@ -1,5 +1,5 @@
 
-GOPATH ?= $(shell pwd)
+GOPATH = $(shell pwd)
 
 RUNGO=env GOPATH=$(GOPATH) go
 
