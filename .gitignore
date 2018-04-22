@@ -6,3 +6,4 @@ src/golang.org/
 *~
 restart-build
 trigger-build
+bintray-deploy.json
