@@ -18,5 +18,6 @@ clean:
 	rm -rf src/golang.org
 	rm -rf src/github.com
 	rm -rf pkg bin
+	rm -f restart-build trigger-build
 
 .PHONY: tests clean
