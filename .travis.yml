@@ -1,4 +1,13 @@
 language: go
-
 go:
-  - "1.10.x"
+- 1.10.x
+deploy:
+  provider: bintray
+  before_deploy: bash deploy/bintray-deploy.sh
+  file: bintray-deploy.json
+  user: RafaelOstertag
+  key:
+    secure: NTjVL6SmFef48OOgMZ1zcs5KZ+uOJFft9PnaKe/C0ndNA55K6qG1mmQHVuZHNkMBWhBZ5fTFzcjUhlbynSVz6OyH1W7C+mBQCYGSUjuV/BgjR+YT1qIuTSLRxgKpbu3fEnIshiuW5m7MQrRBIIU85HCcivxSwxaO1GGCAaF4kx73go1k3js/fRqBmCwJGGwKyx98LPOGwjVMaZdZF3tnZ1jBJZ+n6MTWchqmtP4qGA/9giYi+l9WaAu6a2mrSUpMxiEnh7Z2aH6Q4L6ZmvrfHzYL6ojTq5QGuGUtngg3zCD9B69rmqoJtmF/MPTYxt5EY2UkclIQy1N0YENRCEeZPYz0TS91Bfiytm28cZ7tOnIWvz7xKdwUVpKvzo7NHy8Qz38i5ne3W6SrtD9DCVA6/019ddNuQcNMz2hgHm3ejfWPDkHhZ4iLLAHOF2ZYRsyWHwWfKdvOdIbPC/mDJlE51nB88oDj+/rF6XfsaKxa6nYTbcfZ4lC2m4cwftLaYkyVyAngVmoqfPCK/NE7OVueOhcepGMrBE7RiNmOmtnUDu0LJ+be7+CnmK76uNhIF0bY2QU0RzR8X0o359CaDsyqocwirEx3s2ppK7SVZKhjEg2BYxlwuzHg7xj5pWdkOjNW1D++S7MFtQ7HU7pGNfKrhZR5iN+nd/usMaAm5C/1FUg=
+  skip_cleanup: true
+  on:
+    tags: true
